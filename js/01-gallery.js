@@ -1,12 +1,34 @@
 import { galleryItems } from './gallery-items.js';
+
 // Change code below this line
-const galleryImages = document.querySelector('.gallery')
-galleryImages.addEventListener("click", (event) => {
-    event.preventDefault();
-})
+const galleryImages = document.querySelector('.gallery');
+galleryImages.addEventListener("click", selectGalleryImages);
 const numberOfItems = galleryItems.length;
 
 createGallery(numberOfItems);
+
+function selectGalleryImages(event) {
+    event.preventDefault();
+    if (event.target.nodeName !== "IMG") {
+    return;
+    }
+    const selectedImagesUrl = event.target.dataset.source;
+
+    selectedImagesShow(selectedImagesUrl);
+
+}
+
+function selectedImagesShow(images) {
+    const instance = basicLightbox.create(`
+    <img src="${images}" width="800" height="600">
+    `);
+    instance.show();
+
+    document.addEventListener("keydown", ({key}) => {if (key === 'Escape') {
+        instance.close();
+}
+});
+}
 
 function createGallery(numberOfItems) {
     const items = [];
