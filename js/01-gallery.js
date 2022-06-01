@@ -5,7 +5,6 @@ galleryImages.addEventListener("click", (event) => {
     event.preventDefault();
 })
 const numberOfItems = galleryItems.length;
-console.log(numberOfItems);
 
 createGallery(numberOfItems);
 
@@ -17,9 +16,8 @@ function createGallery(numberOfItems) {
         const itemDiv = createDivElement();
         itemA.appendChild(itemImg);
         itemDiv.appendChild(itemA);
-        let item = itemDiv;
-        console.log(item)
-        items.push(item);
+
+        items.push(itemDiv);
     }
     galleryImages.append(...items);
 }
