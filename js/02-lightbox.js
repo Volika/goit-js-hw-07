@@ -4,7 +4,8 @@ import { galleryItems } from './gallery-items.js';
 const galleryImages = document.querySelector('.gallery');
 galleryImages.addEventListener("click", selectGalleryImages);
 const numberOfItems = galleryItems.length;
-
+const itemArray = [];
+   
 createGallery(numberOfItems);
 // console.log(galleryItems);
 // const gallery = new SimpleLightbox({ elements: '.gallery a' });
@@ -15,7 +16,10 @@ function selectGalleryImages(event) {
     if (event.target.nodeName !== "IMG") {
     return;
     }
-    const selectedImagesUrl = event.target.href;
+    
+//     const lightbox = SimpleLightbox.open({
+//     items: itemArray
+// });
     // console.log(event.target.src);
 
     // selectedImagesShow(selectedImagesUrl);
@@ -25,15 +29,17 @@ function selectGalleryImages(event) {
 
 function createGallery(numberOfItems) {
     const items = [];
+ 
     for (let i = 0; i < numberOfItems; i += 1) {
         const itemImg = createImgElement(galleryItems[i].preview, galleryItems[i].description);
         const itemA = createAElement(galleryItems[i].original);
         const itemLi = createLiElement();
         itemA.appendChild(itemImg);
         itemLi.appendChild(itemA);
-     
+        itemArray.push(galleryItems[i].original);
         items.push(itemLi);
     }
+  
     galleryImages.append(...items);
 }
 
