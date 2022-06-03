@@ -17,15 +17,16 @@ function selectGalleryImages(event) {
     return;
     }
     const imgTitle = event.target.alt;
-    console.log(imgTitle);
+   
     let lightbox = new SimpleLightbox('.gallery a', { /* options */ });
+    lightbox.captionsData = imgTitle;
+    // console.log(lightbox.captionsData);
     
-    // lightbox.setContent(imgTitle);
+    lightbox.refresh();
 //      $('.gallery a').on('open.simplelightbox', function () {
 //   // код....
 // });
 }
-
 // _.debounce(() => {
 //     console.log("Scroll handler call after 300ms pause");
 //   }, 300)
