@@ -19,10 +19,10 @@ function selectGalleryImages(event) {
     const imgTitle = event.target.alt;
    
     let lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt', });
-    lightbox.captionsData = imgTitle;
+    // lightbox.captionsData = imgTitle;
     // console.log(lightbox.captionsData);
     
-    lightbox.refresh();
+    // lightbox.refresh();
 //      $('.gallery a').on('open.simplelightbox', function () {
 //   // код....
 // });
