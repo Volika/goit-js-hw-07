@@ -53,7 +53,7 @@ function createImgElement(preview, description) {
     item.classList.add('gallery__image');
     item.setAttribute('src', preview);
     item.setAttribute('alt', description);
-    // item.setAttribute('title', description);
+    item.setAttribute('title', description);
     return item;
 }
 function createAElement(original) {
