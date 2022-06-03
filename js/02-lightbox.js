@@ -18,7 +18,7 @@ function selectGalleryImages(event) {
     }
     const imgTitle = event.target.alt;
    
-    let lightbox = new SimpleLightbox('.gallery a', { /* options */ });
+    let lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt', });
     lightbox.captionsData = imgTitle;
     // console.log(lightbox.captionsData);
     
@@ -53,7 +53,7 @@ function createImgElement(preview, description) {
     item.classList.add('gallery__image');
     item.setAttribute('src', preview);
     item.setAttribute('alt', description);
-    item.setAttribute('title', description);
+    // item.setAttribute('title', description);
     return item;
 }
 function createAElement(original) {
