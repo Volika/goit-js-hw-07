@@ -1,10 +1,10 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
-// const galleryItems = document.querySelector('.gallery');
+
 const galleryImages = document.querySelector('.gallery');
 galleryImages.addEventListener("click", selectGalleryImages);
 const numberOfItems = galleryItems.length;
-// const itemArray = [];
+
    
 createGallery(numberOfItems);
 // console.log(galleryItems);
