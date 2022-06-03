@@ -5,11 +5,7 @@ const galleryImages = document.querySelector('.gallery');
 galleryImages.addEventListener("click", selectGalleryImages);
 const numberOfItems = galleryItems.length;
 
-   
 createGallery(numberOfItems);
-// console.log(galleryItems);
-// const gallery = new SimpleLightbox({ elements: '.gallery a' });
-// gallery.next();
 
 function selectGalleryImages(event) {
     event.preventDefault();
@@ -18,18 +14,13 @@ function selectGalleryImages(event) {
     }
     const imgTitle = event.target.alt;
    
-    let lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt', });
-    // lightbox.captionsData = imgTitle;
-    // console.log(lightbox.captionsData);
+    let lightbox = new SimpleLightbox('.gallery a', {
+        captionsData: 'alt',
+        captionsDelay: 250,
+        captionsPosition: 'bottom',
+    });
     
-    // lightbox.refresh();
-//      $('.gallery a').on('open.simplelightbox', function () {
-//   // код....
-// });
 }
-// _.debounce(() => {
-//     console.log("Scroll handler call after 300ms pause");
-//   }, 300)
 
 function createGallery(numberOfItems) {
     const items = [];
@@ -40,8 +31,6 @@ function createGallery(numberOfItems) {
       
         itemA.appendChild(itemImg);
 
-        // const itemLi = createLiElement();
-        // itemLi.appendChild(itemA);
         items.push(itemA);
     }
   
@@ -53,7 +42,6 @@ function createImgElement(preview, description) {
     item.classList.add('gallery__image');
     item.setAttribute('src', preview);
     item.setAttribute('alt', description);
-    // item.setAttribute('title', description);
     return item;
 }
 function createAElement(original) {
@@ -63,12 +51,5 @@ function createAElement(original) {
     item.setAttribute('data-lightbox', "lbox");
     return item;
 }
-
-function createLiElement() {
-    const item = document.createElement('li');
-    // item.classList.add('gallery__item');
-    return item;
-}
-
 
 
