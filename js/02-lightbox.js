@@ -4,7 +4,7 @@ import { galleryItems } from './gallery-items.js';
 const galleryImages = document.querySelector('.gallery');
 galleryImages.addEventListener("click", selectGalleryImages);
 const numberOfItems = galleryItems.length;
-const itemArray = [];
+// const itemArray = [];
    
 createGallery(numberOfItems);
 // console.log(galleryItems);
@@ -16,16 +16,19 @@ function selectGalleryImages(event) {
     if (event.target.nodeName !== "IMG") {
     return;
     }
+    const imgTitle = event.target.alt;
+    console.log(imgTitle);
+    let lightbox = new SimpleLightbox('.gallery a', { /* options */ });
     
-//     const lightbox = SimpleLightbox.open({
-//     items: itemArray
+    // lightbox.setContent(imgTitle);
+//      $('.gallery a').on('open.simplelightbox', function () {
+//   // код....
 // });
-    // console.log(event.target.src);
-
-    // selectedImagesShow(selectedImagesUrl);
-
 }
 
+// _.debounce(() => {
+//     console.log("Scroll handler call after 300ms pause");
+//   }, 300)
 
 function createGallery(numberOfItems) {
     const items = [];
@@ -33,11 +36,12 @@ function createGallery(numberOfItems) {
     for (let i = 0; i < numberOfItems; i += 1) {
         const itemImg = createImgElement(galleryItems[i].preview, galleryItems[i].description);
         const itemA = createAElement(galleryItems[i].original);
-        const itemLi = createLiElement();
+      
         itemA.appendChild(itemImg);
-        itemLi.appendChild(itemA);
-        itemArray.push(galleryItems[i].original);
-        items.push(itemLi);
+
+        // const itemLi = createLiElement();
+        // itemLi.appendChild(itemA);
+        items.push(itemA);
     }
   
     galleryImages.append(...items);
@@ -48,6 +52,7 @@ function createImgElement(preview, description) {
     item.classList.add('gallery__image');
     item.setAttribute('src', preview);
     item.setAttribute('alt', description);
+    // item.setAttribute('title', description);
     return item;
 }
 function createAElement(original) {
