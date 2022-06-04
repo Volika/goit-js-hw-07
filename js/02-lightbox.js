@@ -4,9 +4,6 @@ import { galleryItems } from './gallery-items.js';
 const galleryImages = document.querySelector('.gallery');
 galleryImages.addEventListener("click", selectGalleryImages);
 
-// const numberOfItems = galleryItems.length;
-// createGallery(numberOfItems);
-
 const imageEl = galleryItems.map(({preview, original, description}) => {
     return `<li><a class="gallery__item" href='${original}'>
     <img class="gallery__image" src ='${preview}' alt ='${description}'/>
@@ -14,7 +11,6 @@ const imageEl = galleryItems.map(({preview, original, description}) => {
 }).join("");
 
 galleryImages.insertAdjacentHTML("afterbegin", imageEl);
-
 
 function selectGalleryImages(event) {
     event.preventDefault();
@@ -31,6 +27,8 @@ function selectGalleryImages(event) {
     
 }
 
+// const numberOfItems = galleryItems.length;
+// createGallery(numberOfItems);
 // function createGallery(numberOfItems) {
 //     const items = [];
 //     for (let i = 0; i < numberOfItems; i += 1) {
