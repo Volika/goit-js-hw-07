@@ -2,7 +2,6 @@ import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
 const galleryImages = document.querySelector('.gallery');
-galleryImages.addEventListener("click", selectGalleryImages);
 
 const imageEl = galleryItems.map(({preview, original, description}) => {
     return `<li><a class="gallery__item" href='${original}'>
@@ -12,20 +11,27 @@ const imageEl = galleryItems.map(({preview, original, description}) => {
 
 galleryImages.insertAdjacentHTML("afterbegin", imageEl);
 
-function selectGalleryImages(event) {
-    event.preventDefault();
-    if (event.target.nodeName !== "IMG") {
-    return;
-    }
-    const imgTitle = event.target.alt;
-   
     let lightbox = new SimpleLightbox('.gallery a', {
         captionsData: 'alt',
         captionsDelay: 1000,
         captionsPosition: 'bottom',
     });
+
+// galleryImages.addEventListener("click", selectGalleryImages);
+// function selectGalleryImages(event) {
+    // event.preventDefault();
+    // if (event.target.nodeName !== "IMG") {
+    // return;
+    // }
+    // const imgTitle = event.target.alt;
+   
+    // let lightbox = new SimpleLightbox('.gallery a', {
+    //     captionsData: 'alt',
+    //     captionsDelay: 1000,
+    //     captionsPosition: 'bottom',
+    // });
     
-}
+// }
 
 // const numberOfItems = galleryItems.length;
 // createGallery(numberOfItems);
