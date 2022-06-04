@@ -8,9 +8,9 @@ galleryImages.addEventListener("click", selectGalleryImages);
 // createGallery(numberOfItems);
 
 const imageEl = galleryItems.map(({preview, original, description}) => {
-    return `<a class="gallery__item" href='${original}'>
+    return `<li><a class="gallery__item" href='${original}'>
     <img class="gallery__image" src ='${preview}' alt ='${description}'/>
-  </a>`;
+  </a></li>`;
 }).join("");
 
 galleryImages.insertAdjacentHTML("afterbegin", imageEl);
